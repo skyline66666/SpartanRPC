@@ -50,24 +50,4 @@ func TestServer(test *testing.T) {
 		n++
 	}
 
-	//Timeout calls test
-	prefix = "TimeoutCheckingCalls."
-	time.Sleep(time.Second)
-	//loop through all timeoutCallCases in the table and create the concrete subtest
-	for _, testCase := range timeoutCallCases {
-		t.Run(prefix+testCase.TimeoutType, func(t *testing.T) {
-			createTimeoutCallTestCase(t, &testCase)
-		})
-	}
-
-	//Timeout dials test
-	prefix = "TimeoutCheckingDials."
-	time.Sleep(time.Second)
-	//loop through all timeoutCallCases in the table and create the concrete subtest
-	for _, testCase := range timeoutDialCases {
-		t.Run(prefix+testCase.TimeoutType, func(t *testing.T) {
-			createTimeoutDialTestCase(t, &testCase)
-		})
-	}
-
 }
